@@ -13,6 +13,15 @@ app.use("/", (req, res, next) => {
   });
 });
 
+app.use("/health", (req, res, next) => {
+  return res.status(200).json({
+    success: true,
+    data: {
+      message: "server is healthy",
+    },
+  });
+});
+
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
